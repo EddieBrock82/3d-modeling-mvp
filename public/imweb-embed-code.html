@@ -1,0 +1,50 @@
+<!-- imweb 커스텀 코드에 삽입할 코드 -->
+<div id="3d-modeling-container" style="width: 100%; height: 800px; position: relative;">
+  <div class="loading" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #666;">
+    3D 모델링 로딩 중...
+  </div>
+</div>
+
+<script>
+  // imweb에서 제공하는 사용자 정보
+  window.IMWEB_USER_ID = '{{user_id}}';  // imweb의 사용자 ID 변수
+  window.IMWEB_USER_EMAIL = '{{user_email}}';  // imweb의 사용자 이메일 변수
+</script>
+
+<!-- 3D 모델링 뷰어 스크립트 -->
+<script type="module">
+  import { ModelViewer } from 'https://your-domain.com/src/components/ModelViewer.js';
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('3d-modeling-container');
+    if (container) {
+      const viewer = new ModelViewer(container);
+      
+      // 사용자 정보 전달
+      const userData = {
+        userId: window.IMWEB_USER_ID,
+        userEmail: window.IMWEB_USER_EMAIL
+      };
+      
+      // 부모 창(imweb)으로 사용자 정보 전송
+      window.parent.postMessage({
+        type: 'USER_DATA',
+        data: userData
+      }, '*');
+    }
+  });
+</script>
+
+<style>
+  #3d-modeling-container {
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .loading {
+    font-size: 16px;
+    font-weight: 500;
+  }
+</style> 

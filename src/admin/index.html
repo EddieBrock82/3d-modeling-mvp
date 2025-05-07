@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D 가구 배치 관리자</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <nav class="admin-sidebar">
+            <div class="admin-logo">관리자</div>
+            <ul class="admin-menu">
+                <li class="active" data-page="presets">프리셋 관리</li>
+                <li data-page="projects">프로젝트 관리</li>
+                <li data-page="analytics">통계</li>
+            </ul>
+        </nav>
+        
+        <main class="admin-content">
+            <div class="admin-header">
+                <h1>프리셋 관리</h1>
+                <button id="logout-btn">로그아웃</button>
+            </div>
+            
+            <div class="admin-section" id="presets-section">
+                <div class="section-header">
+                    <h2>프리셋 목록</h2>
+                    <button id="add-preset-btn">새 프리셋 추가</button>
+                </div>
+                <div class="presets-grid" id="presets-list">
+                    <!-- 프리셋 목록이 여기에 동적으로 추가됩니다 -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 프리셋 모달 -->
+    <div class="modal" id="preset-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">새 프리셋 추가</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="preset-form">
+                <div class="form-group">
+                    <label for="preset-name">이름</label>
+                    <input type="text" id="preset-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="preset-category">카테고리</label>
+                    <select id="preset-category" required>
+                        <option value="집기">집기</option>
+                        <option value="디자인물">디자인물</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="preset-type">타입</label>
+                    <select id="preset-type" required>
+                        <option value="model">3D 모델</option>
+                        <option value="box">상자</option>
+                        <option value="sphere">구</option>
+                        <option value="cylinder">원기둥</option>
+                        <option value="circle">원</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="preset-price">가격 (원)</label>
+                    <input type="number" id="preset-price" required min="0">
+                </div>
+                <div class="form-group dimensions-group">
+                    <label>크기 (mm)</label>
+                    <div class="dimensions-inputs">
+                        <input type="number" id="preset-width" placeholder="가로" min="0">
+                        <input type="number" id="preset-height" placeholder="높이" min="0">
+                        <input type="number" id="preset-depth" placeholder="세로" min="0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="preset-color">색상</label>
+                    <input type="color" id="preset-color" value="#3399ff">
+                </div>
+                <div class="form-group model-group">
+                    <label for="preset-url">3D 모델 URL</label>
+                    <input type="text" id="preset-url" placeholder="Supabase Storage URL">
+                </div>
+                <div class="form-group">
+                    <label for="preset-icon">아이콘</label>
+                    <input type="text" id="preset-icon" placeholder="이모지 또는 텍스트">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">취소</button>
+                    <button type="submit" class="save-btn">저장</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="./admin.js"></script>
+</body>
+</html> 

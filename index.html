@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D 배치 도구</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #f0f0f0;
+    }
+
+    #canvas-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    #toolbar {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #toolbar button {
+      margin-right: 8px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #toolbar button:hover {
+      background: #45a049;
+    }
+
+    #info {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 2;
+      min-width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas-container"></div>
+  <div id="toolbar">
+    <button id="add-preset-btn">+ 오브제 추가</button>
+    <button id="area-button">면적 설정</button>
+    <button id="save-btn">저장</button>
+    <button id="load-btn">불러오기</button>
+    <button id="pdf-btn">견적서 저장</button>
+  </div>
+  <div id="info"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

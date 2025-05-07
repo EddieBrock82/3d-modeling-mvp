@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D 모델링 뷰어</title>
+    <style>
+        #3d-modeling-container {
+            width: 100%;
+            height: 800px;
+            position: relative;
+        }
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="3d-modeling-container">
+        <div class="loading">3D 모델링 로딩 중...</div>
+    </div>
+    <script type="module" src="/src/imweb-integration.js"></script>
+</body>
+</html>
