@@ -1,0 +1,10 @@
+{
+    "rewrites": [
+      {
+        "source": "/reset-password",
+        "destination": "/reset-password.html"
+      }
+    ]
+  }
+
+  
